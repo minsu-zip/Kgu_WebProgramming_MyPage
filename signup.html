@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish&display=swap&subset=korean"
+        rel="stylesheet">
+
+    <style>
+
+        html,
+        body {
+            cursor: url(./static/image/mouse.cur), auto
+        }
+
+        a {
+            cursor: url(./static/image/mouse.cur), auto
+        }
+    </style>
+    <script>
+        function check() {
+            var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+
+            if ($("#ID").val() == "" || $("#ID").val().length < 5) {
+                alert("아이디가 5글자 미만입니다.")
+                $("#ID").focus();
+                return false;
+            }
+
+            if ($("#NAME").val() == "") {
+                alert("이름 입력")
+                $("#NAME").focus();
+                return false;
+            }
+
+
+            if ($("#PASS").val() == "" || $("#PASS").val().length < 5) {
+                alert("비밀번호 확인")
+                $("#PASS").focus();
+                return false;
+            }
+
+            if ($("#PASS").val() != $("#PWDCHECK").val()) {
+                alert("비밀번호가 일치하지 않습니다.")
+                $("#PWDCHECK").focus();
+                return false;
+            }
+
+            if ($("#EMAIL").val() == "") {
+                alert("이메일을 입력해주세요");
+                $("#EMAIL").focus();
+                return false;
+            }
+
+            if (!getMail.test($("#EMAIL").val())) {
+                alert("이메일 형식에 맞게 입력")
+                $("#EMAIL").focus();
+                return false;
+            }
+
+            if ($("#PHONE2").val().length < 3 || $("#PHONE3").val().length < 3) {
+                alert("번호 자릿수확인")
+                $("#PHONE2").focus();
+                return false;
+            }
+
+            if ($("#ADDRESS").val() == "") {
+                alert("주소 입력")
+                $("#ADDRESS").focus();
+                return false;
+            }
+            alert("회원가입이 되었습니다.")
+        }
+    </script>
+    <style>
+        body {
+            position: relative;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 15%;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        label {
+            padding-right: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center">
+        <div>
+            <h1 class="mt-5 mb-5 text-center c">회원 가입</h1>
+            <form class="d" onsubmit="return check()">
+                <div class="row">
+                    <label class="col-3 pr-0">아이디</label>
+                    <div class="col-8">
+                        <input class="col-12 p-0" type="text" id="ID" name="ID" placeholder="5자 이상 작성">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-3 pr-0">이름</label>
+                    <div class="col-8">
+                        <input class="col-12 p-0" type="text" id="NAME" name="NAME">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-3 pr-0">비밀번호</label>
+                    <div class="col-8">
+                        <input class="col-12 p-0" type="password" id="PASS" name="PASS" placeholder="5자 이상 작성">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-3 pr-0">비밀번호 확인</label>
+                    <div class="col-8">
+                        <input class="col-12 p-0" type="password" id="PWDCHECK">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-3 pr-0">이메일</label>
+                    <div class="col-8">
+                        <input class="col-12 p-0" type="email" id="EMAIL" name="EMAIL">
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-3 pr-0">전화번호</label>
+                    <!--번호 앞자리-->
+                    <div class="row col-8 d-flex justify-content-center">
+                        <div class="col-1 pr-5">
+                            <select class="row" name="PHONE1" size="1" id="PHONE1">
+                                <option value="010" selected>010</option>
+                                <option value="011" selected>011</option>
+                                <option value="031" selected>031</option>
+                                <option value="02" selected>02</option>
+                                <option value="" selected>선택</option>
+                            </select>
+                        </div>-
+                        <div class="col-4 p-0">
+                            <input class="col-11 p-0" type="text" id="PHONE2" name="PHONE2">
+                        </div>-
+                        <div class="col-4 p-0">
+                            <input class="col-11 p-0" type="text" id="PHONE3" name="PHONE3">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-3 pr-0">주소</label>
+                    <div class="col-8">
+                        <input class="col-12 p-0" type="text" id="ADDRESS" style="height: 8rem;" name="ADDRESS">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="col-6 mt-5 btn btn-primary" style="display: inline;">가입하기</button>
+                </div>
+            </form>
+            <a href="./index.html">뒤로가기</a>
+        </div>
+    </div>
+
+</body>
+
+</body>
+
+</html>

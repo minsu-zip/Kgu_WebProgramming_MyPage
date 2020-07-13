@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>201610006_박민수</title>
+    <meta name="viewport"
+        content="width=device-width, intial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="./home.js"></script>
+    <link rel="stylesheet" type="text/css" href="./home.css">
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <!-- https://www.kurly.com/shop/main/index.php -->
+    <header>
+       <audio autoplay controls loop preload="auto">
+            <source src="./static/day.mp3" type="audio/mp3">
+        </audio>
+        <div id="title">
+            <h1><a id="main_title" href=index.html>제가 만든 제과</a></h1>
+            <p>
+                made by minsu
+            </p>
+        </div>
+        <hr>
+        <br>
+    </header>
+
+
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Menu List</button>
+
+            <div id="nav1" class="dropdown-content">
+                <a href="company.html">회사 소개</a>
+                <a href="buy.html">제품 구입</a>
+                <a class="signup" href="signup.html">회원 가입</a>
+            </div>
+        </div>
+
+
+        <div class="nav_main">
+            <div id="nav">
+                <a href="company.html">회사 소개</a>
+                <a href="buy.html">제품 구입</a>
+                <a class="signup" href="signup.html">회원 가입</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <section>
+
+        <article>
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="./static/image/h2-1.jpg" style="width:100%">
+                    <div class="text">
+                        <h1><strong>Safety</strong></h1>
+                        <p>믿고 안심할 수 있는 유기농 먹거리 입니다.</p>
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="./static/image/h2-2.jpg" style="width:100%">
+                    <div class="text">
+                        <h1><strong>Cost-effective</strong></h1>
+                        <p>엄선된 재료로 만든 먹거리를 합리적인 가격에 즐기세요.</p>
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="./static/image/h2-3.jpg" style="width:100%">
+                    <div class="text">
+                        <h1><strong>Fast shipping</strong></h1>
+                        <p>주문하신 제품을 바로 즐기세요.</p>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </article>
+
+        <article>
+            <h2 class="tab_title">Popular Item</h2>
+
+            <div class="tab_wrap">
+                <div class="tab_menu_container">
+                    <button class="tab_menu_btn1 tab_menu_btn on" type="button">껌</button>
+                    <button class="tab_menu_btn2 tab_menu_btn" type="button">초콜릿</button>
+                    <button class="tab_menu_btn3 tab_menu_btn" type="button">빵</button>
+                </div>
+
+                <div class="tab_box_container">
+
+                    <div class="tab_box1 tab_box on">
+
+                        <div class="row">
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/껌1.jpg">
+                                    <p>천연치클 껌 4종</p>
+                                    <p>3,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/껌2.jpg">
+                                    <p>천연껌 6종</p>
+                                    <p>3,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/껌3.jpg">
+                                    <p>자일리톨 2종</p>
+                                    <p>7,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/껌4.jpg">
+                                    <p>무가당 캔디 4종</p>
+                                    <p>3,000원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab_box2 tab_box">
+
+                        <div class="row">
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/초콜릿1.jpg">
+                                    <p>초콜릿 꿀 3종</p>
+                                    <p>15,000원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/초콜릿2.jpg">
+                                    <p>유기농 초콜릿 7종</p>
+                                    <p>3,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/초콜릿3.jpg">
+                                    <p>벨기에 초콜릿 3종</p>
+                                    <p>7,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/껌4.jpg">
+                                    <p>퓨전 초콜릿 2종</p>
+                                    <p>6,000원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab_box3 tab_box">
+                        <div class="row">
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/빵1.jpg">
+                                    <p>스콘 3종</p>
+                                    <p>3,100원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/빵2.jpg">
+                                    <p>햄버그 번 180g</p>
+                                    <p>3,500원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/빵3.jpg">
+                                    <p>에그 베이컨</p>
+                                    <p>4,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/빵4.jpg">
+                                    <p>설탕 없는 머핀 2종</p>
+                                    <p>3,600원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+
+
+        <article>
+
+
+            <h2 class="tab_title">New Item</h2>
+
+            <div class="tab_wrap">
+                <div class="tab_menu_container">
+                    <button class="tab_menu_btn4 tab_menu_btn1 on" type="button">비스킷</button>
+                    <button class="tab_menu_btn5 tab_menu_btn1" type="button">아이스크림</button>
+                    <button class="tab_menu_btn6 tab_menu_btn1" type="button">파이</button>
+                </div>
+
+                <div class="tab_box_container">
+
+                    <div class="tab_box4 tab_box_1 on">
+
+                        <div class="row">
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/비스킷1.jpg">
+                                    <p>버터쿠키 에디션 3종</p>
+                                    <p>8,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/비스킷2.jpg">
+                                    <p>유기농 퀴노아 비스킷</p>
+                                    <p>5,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/비스킷3.jpg">
+                                    <p>벨기에 비스킷 6종</p>
+                                    <p>6,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/비스킷4.jpg">
+                                    <p>마이 커피 비스킷</p>
+                                    <p>3,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab_box5 tab_box_1">
+
+                        <div class="row">
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/아이1.jpg">
+                                    <p>아이스크림 콘 5종</p>
+                                    <p>8,000원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/아이2.jpg">
+                                    <p>아이스크림 7종</p>
+                                    <p>3,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/아이3.jpg">
+                                    <p>아이스크림 10종</p>
+                                    <p>9,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/아이4.jpg">
+                                    <p>아이스크림 3종</p>
+                                    <p>6,000원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab_box6 tab_box_1">
+                        <div class="row">
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/파이1.jpg">
+                                    <p>르까도드마비 프리미에 쇼콜라</p>
+                                    <p>16,000원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/파이2.jpg">
+                                    <p>르까도드마비 타르트 2종</p>
+                                    <p>7,500원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/파이3.jpg">
+                                    <p>세렝게티 타르트</p>
+                                    <p>4,900원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <div class="item">
+                                    <img src="./static/image/상품/파이4.jpg">
+                                    <p>초코파이 2종</p>
+                                    <p>3,600원</p>
+                                    <button class="btn">주문하기</button>
+                                    <button class="btn">장바구니</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <footer class="site-footer">
+        <div>
+            <div class="row">
+                <div class="footer-item">
+                    <h6>About</h6>
+                    <p>안녕하세요 저는 컴퓨터 공학부를 복수 전공하고있는<br> 융합보안학과 16학번 박민수입니다.
+                        <br> 저는 리액트 개발자를 꿈꾸고있습니다.
+                        <br> 배경음악은 가장 좋아하는 노래입니다.
+                    </p>
+
+                </div>
+
+                <div class="footer-item">
+                    <h6>Skill</h6>
+                    <ul>
+                        <li>Java</a>
+                        </li>
+                        <li>FrontEnd</a>
+                        </li>
+                        <li>BackEnd</a>
+                        </li>
+                        <li>React</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-item">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                        <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                        <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+
+<head>
+
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css?family=Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish&display=swap&subset=korean"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./home.css">
+
+</head>
+
+<body>
+    <header>
+        <div id="title">
+            <h1><a id="main_title" href=index.html>제가 만든 제과</a></h1>
+            <p style="padding-top: 30px;">
+                made by minsu
+            </p>
+        </div>
+        <hr>
+        <br>
+    </header>
+
+
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Menu List</button>
+
+            <div id="nav1" class="dropdown-content">
+                <a href="company.html">회사 소개</a>
+                <a href="buy.html">제품 구입</a>
+                <a class="signup" href="signup.html">회원 가입</a>
+            </div>
+        </div>
+
+
+        <div class="nav_main">
+            <div id="nav">
+                <a href="company.html">회사 소개</a>
+                <a href="buy.html">제품 구입</a>
+                <a class="signup" href="signup.html">회원 가입</a>
+            </div>
+        </div>
+    </nav>
+
+    <h2 class="text-center f" style="margin: 50px 0 0px 0">주문서</h2>
+    <div class="container">
+        <div class="order_list row border-bottom pb-2 g">
+            <div class="col-8">
+                <h2 class="border-bottom text-center p-5">상품 정보</h2>
+                <div class="row p-3">
+                    <img src="static/image/상품/껌1.jpg" style="height: 350px; width: 250px;">
+                    <div class="text-center order_info pl-5 pt-3">
+                        <h4 class="mb-5">천연 치클 껌 4종</h4>
+                        <div class="mr-3">
+                            <p class="ml-5">수량: 4</p>
+                            <ul>
+                                <li>후레시 민트 (+3,900)</li>
+                                <li>후레시 레몬 (+3,900)</li>
+                                <li>후레시 솔티 (+3,900)</li>
+                                <li>후레시 펀치 (+3,900)</li>
+                            </ul>
+
+                            <span name="amount" id="sell_amount_p"> </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 border-left">
+                <h2 class="border-bottom text-center p-5">상품 금액</h2>
+                <div class="p-3">
+                    <h1 class="text-center  order_info">15,600원</h1>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+
+        <div class="data_order ">
+            <div class="titleArea mb-5 border-bottom">
+                <h2 class="text-center pb-3 f">주문자 정보입력</h2>
+            </div>
+            <table class="goods_table d-flex justify-content-center g">
+                <tbody>
+                    <tr class="send">
+                        <th class="th">보내는 분</th>
+                        <td><input style="width: 162px" type="text" name="Ordername" value required="required"
+                                msgr="보내는 분의 이름을 적어주세요">
+                        </td>
+                    </tr>
+                    <tr class="phone">
+                        <th class="th">휴대폰 </th>
+                        <td>
+                            <span>
+                                <select>
+                                    <option>010</option>
+                                    <option>011</option>
+                                    <option>019</option>
+                                </select>
+                                <input type="text">-<input type="text">
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="email">
+                        <th class="th">이메일</th>
+                        <td>
+                            <span>
+                                <input type="text">@
+                                <select>
+                                    <option>nate.com</option>
+                                    <option>naver.com</option>
+                                    <option>daum.net</option>
+                                </select>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="address">
+                        <th class="th">배송주소</th>
+                        <td>
+                            <span>
+                                <input type="text"><input type="button" value="우편번호 검색">
+                                <input type="text" class="text2">
+                                <input type="text" class="text2">
+                            </span>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <p class="text-center"> <button type="button" class="color btn text-white my-5 col-5 g" data-toggle="modal"
+                    data-target="#exampleModal"> 주문하기</button></p>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="exampleModalLabel">주문 완료</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            주문이 성공적으로 완료 되었습니다. 감사합니다.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="color btn text-white" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div>
+
+            <div class="row">
+
+                <div class="footer-item">
+                    <h6>About</h6>
+                    <p>안녕하세요 저는 컴퓨터 공학부를 복수 전공하고있는<br> 융합보안학과 16학번 박민수입니다.
+                        <br> 저는 리액트 개발자를 꿈꾸고있습니다.
+                        <br> 배경음악은 가장 좋아하는 노래입니다.
+                    </p>
+
+                </div>
+
+                <div class="footer-item">
+                    <h6>Skill</h6>
+                    <ul class="footer-links">
+                        <li>Java</a>
+                        </li>
+                        <li>FrontEnd</a>
+                        </li>
+                        <li>BackEnd</a>
+                        </li>
+                        <li>React</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-item">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                        <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                        <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+    </footer>
+</body>
+
+</html>

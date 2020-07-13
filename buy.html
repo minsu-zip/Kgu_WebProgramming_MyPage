@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<!--JS-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!--CSS-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link
+    href="https://fonts.googleapis.com/css?family=Cute+Font|Gamja+Flower|Hi+Melody|Poor+Story|Stylish&display=swap&subset=korean"
+    rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./home.css">
+
+<!-- 유지보수 사항 
+    1.한번 선택된 item은 다시눌러도 추가 안되게 적용하기
+
+ -->
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./home.css">
+
+    <script language="JavaScript">
+        $(function () {
+            var btn_index = 1
+            var item_index_list = []
+            var price = 3900 //가격
+            var Duplicate = true;
+
+            //버튼 생성
+            $("#select").change(function () {
+                if ($(this).children("option:selected").attr("id") != "default_choose") {
+                    var start_div = "<div id=item_index" + btn_index + ">"
+                    var plus_button = "<input type= 'button' value= '+' id= 'plus_editItem_btn" + btn_index.toString() + "'name='plus_editItem_btn' readonly>"
+                    var minus_button = "<input type='button' value= '-' id= 'minus_editItem_btn" + btn_index.toString() + "'name='minus_editItem_btn' readonly>"
+                    var remove_button = "<input type='button' value= 'X' id='remove_editItem_btn" + btn_index.toString() + "'name='remove_editItem_btn'readonly </div>"
+                    var amount = "<input type= 'number' name='amount' value=1  size=3 id='amount" + btn_index.toString() + "'readonly>"
+
+                    var aa = $(this).children("option:selected").attr("id");
+
+
+                    var text = $(this).children("option:selected").text() // 리스트에서 클릭한 제품을 나타냄
+
+                    $("#item-area").append(start_div + text + amount + plus_button + minus_button + remove_button);
+                    item_index_list.push(btn_index)
+                    btn_index += 1
+                    calculate("plus_editItem_btn") // 버튼 생성시 기본 1개 설정
+                }
+            })
+
+            function calculate(button_type) {
+
+                // +버튼을 눌렀을때 총금액, 수량 계산후 출력
+                if (button_type == "plus_editItem_btn") {
+                    $("#sell_amount").val(parseInt($("#sell_amount").val()) + 1)
+                    $("#sell_amount_p").text($("#sell_amount").val().toString())
+                    $("#sell_sum").val((parseInt($("#sell_amount").val()) * 3900))
+                    $("sell_sum_p").text($("#sell_sum").val().toString())
+
+                    // -버튼을 눌렀을때 총금액, 수량 계산후 출력
+                } else if (button_type == "minus_editItem_btn") {
+                    $("#sell_amount").val(parseInt($("#sell_amount").val()) - 1)
+                    $("#sell_amount_p").text($("#sell_amount").val().toString())
+                    $("#sell_sum").val(parseInt($("#sell_amount").val()) * 3900)
+                    $("sell_sum_p").text($("#sell_sum").val().toString())
+                }
+            }
+
+            function calculate_remove(index) {
+                var price = 3900
+                // item 삭제시 수량과 금액을 수정하는 코드
+                $("#sell_amount").val(parseInt($("#sell_amount").val() - $("#amount" + index).val()))
+                $("#sell_sum").val($("#sell_amount").val() * price.toString())
+                $("#sell_amount_p").text($("#sell_amount").val().toString())
+                $("sell_sum_p").text($("#sell_sum").val().toString())
+
+                $("#item_index" + index).remove() //항목 제거
+            }
+
+            $(document).ready(function () {
+                $(document).on('click', "input[id*='editItem']", function (e) { //id 이름에 editItem이 포함되는 경운
+
+                    //amount index 찾기
+                    var editItem_id = e.target.id //editItem_id: 클릭한 element의 id
+
+                    if (editItem_id.includes("remove_editItem_btn")) { //항목 제거를 의미하는 id 포함
+                        var btn_name = "remove_editItem_btn"
+
+                    } else if (editItem_id.includes("plus_editItem_btn")) { //상품 개수 추가를 의미하는 id 포함
+                        var btn_name = "plus_editItem_btn"
+                        var edit_amount = 1 //+버튼시 +1을 하기위한 변수
+
+                    } else if (editItem_id.includes("minus_editItem_btn")) { //상품 개수 감소를 의미하는 id 포함
+                        var btn_name = "minus_editItem_btn"
+                        var edit_amount = -1 //-버튼시 -1을 하기위한 변수
+
+                    }
+                    // else if (editItem_id.includes("remove_editItem_btn")) { //상품 개수 감소를 의미하는 id 포함
+                    //     // var btn_name = "remove_editItem_btn"
+                    //     // var edit_amount = $("#sell_amount").val() * (-1) //don't use it
+                    //     // btn_index--
+                    // } 
+
+                    else {
+                        console.log("ERROR")
+                    }
+
+                    var editItem_length = btn_name.length // 클릭한 버튼의 name의 길이 
+                    var editItem_index_str = editItem_id.substring(editItem_length) // 클릭한 버튼의 id(몇번째 item인지)
+                    var value_str = $("#amount" + editItem_index_str).val() // 클릭이벤트 전 해당 item의  수량    
+                    var value_edited = parseInt(value_str) + edit_amount // 클릭이벤트 후 해당 item의  수량 edit_amount에 따라 수량이 달라짐
+
+                    //상품 개수 1 이하로 줄일 수 없음
+                    if (edit_amount == -1 && $("#amount" + editItem_index_str).val() <= 1) {
+                        return
+                    } else if (btn_name === "remove_editItem_btn") { //제거 버튼
+                        calculate_remove(editItem_index_str)
+                        // 삭제 버튼 이벤트후 수량 초기화
+                        $("#amount").val(value_edited)
+                        return
+                    } else {
+                        // 버튼 이벤트후 input박스안에 숫자 표시
+                        $("#amount" + editItem_index_str).val(value_edited)
+                    }
+                    calculate(btn_name)
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="title">
+            <h1><a id="main_title" href=index.html>제가 만든 제과</a></h1>
+            <p style="padding-top: 30px;">
+                made by minsu
+            </p>
+        </div>
+        <hr>
+        <br>
+    </header>
+
+
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Menu List</button>
+
+            <div id="nav1" class="dropdown-content">
+                <a href="company.html">회사 소개</a>
+                <a href="buy.html">제품 구입</a>
+                <a class="signup" href="signup.html">회원 가입</a>
+            </div>
+        </div>
+
+
+        <div class="nav_main">
+            <div id="nav">
+                <a href="company.html">회사 소개</a>
+                <a href="buy.html">제품 구입</a>
+                <a class="signup" href="signup.html">회원 가입</a>
+            </div>
+        </div>
+    </nav>
+
+    <!--body-->
+    <div class="layout-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="span5">
+                    <div class="">
+                        <img class="py-5" style="height: 700px;" src="./static/image/상품/껌1.jpg">
+                    </div>
+                </div>
+                <div class="span4 offset5 pl-5">
+                    <h1 class="name pt-5"> 천연치클 껌 4종</h1>
+                    <p class="text-left">건강과 환경을 생각하는 껌</p>
+                    <table class="table mt-5">
+                        <thead>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">판매가</th>
+                                <td>3,900원</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">판매단위</th>
+                                <td>PK</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">포장타입</th>
+                                <td>상온/종이 포장</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">중량/용량</th>
+                                <td>12개입 / 19g</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">단품 골라담기</th>
+                                <td>
+                                    <select id="select">
+                                        <option selected id="default_choose">==단품골라담기 선택==</option>
+                                        <option value="3900" name="v1" id="v1">후레시 민트 (+3,900)</option>
+                                        <option value="3900" name="v2" id="v2">후레시 레몬 (+3,900)</option>
+                                        <option value="3900" name="v3" id="v3">후레시 솔티 (+3,900)</option>
+                                        <option value="3900" name="v4" id="v4">후레시 펀치 (+3,900)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2></h2>
+
+                    <!-- 선택된 가격리스트 -->
+                    <div id="item-area" class="bg-light p-3"></div>
+                    <div class="row justify-content-end mr-3">
+                        <span class="ml-5">수량:</span>
+                        <span name="amount" id="sell_amount_p"> </span>
+                    </div>
+
+                    <input value="0" hidden id="sell_amount" type="number">
+                    <div><span style="font-size: 35px">총 금액 : </span><span id="sum"></span><input type="number"
+                            name="sum" size="11" id="sell_sum" value="0" readonly>원</div>
+                    <div class="mt-5 text-center">
+                        <a href="./order.html"><button class="color btn text-white col-5">주문하기</button></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv10000033127_1.jpg">
+            </div>
+            <div class="text-center">
+                <h3 class="context_title border-bottom p-3">
+                    <small>건강과 환경을 생각하는 껌</small> "천연 치클껌 4종"
+                </h3>
+                <p class="word">
+                    식사 후 개운하게 입가심을 할 때 씹는 껌은 그 안에 들어있는 색소와 설탕 때문에 걱정이 되기도 하지요. 이제 자연에서 얻은 원료로 순수하게 만든 험블의 천연치클껌을 만나보세요.
+                    이 껌은 설탕 대신 자작나무에서 추출한 자일리톨로 단맛을 내고, 식물에서 향을 추출하여 만든 것이에요. 씹어보면, 천연 재료에서 우러나오는 청량함을 확연히 느낄 수 있지요.
+                    무엇보다 천연치클껌의 가장 큰 매력으로는 ‘치클’이라는 자연 친화적인 성분을 꼽을 수 있는데요.
+                    씹는 맛을 살리기 위하여 자연분해가 되지 않는 플라스틱 원료(초산비닐수지) 대신 나무 수액에서 까다롭게 추출한 ‘치클’을 사용했기 때문에 환경에 해를 입힐 염려가 없답니다.<br>
+                    이제 내 치아 건강뿐만 아니라 지구의 건강까지 생각하는 천연치클껌으로 자연의 달콤함을 즐겨보세요.
+                </p>
+            </div>
+            <div class="dis_img">
+                <h3 class="context_title border-bottom p-3 text-center display-3">
+                    Check Point
+                </h3>
+                <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv40000033128_1.jpg" class="ml-5">
+            </div>
+            <div class="info_img">
+                <h3 class="context_title border-bottom p-3 text-center display-4">
+                    Information
+                </h3>
+                <img src="http://img-cf.kurly.com/shop/data/goodsview/20181008/gv20000033170_1.jpg">
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div>
+
+            <div class="row">
+
+                <div class="footer-item">
+                    <h6>About</h6>
+                    <p>안녕하세요 저는 컴퓨터 공학부를 복수 전공하고있는<br> 융합보안학과 16학번 박민수입니다.
+                        <br> 저는 리액트 개발자를 꿈꾸고있습니다.
+                        <br> 배경음악은 가장 좋아하는 노래입니다.
+                    </p>
+
+                </div>
+
+                <div class="footer-item">
+                    <h6>Skill</h6>
+                    <ul class="footer-links">
+                        <li>Java</a>
+                        </li>
+                        <li>FrontEnd</a>
+                        </li>
+                        <li>BackEnd</a>
+                        </li>
+                        <li>React</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-item">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                        <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                        <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+    </footer>
+
+</body>
+
+</html>
