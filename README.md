@@ -1,4 +1,4 @@
-# 제과 만든 제과
+# Kgu_WebProgramming_MyPage
 경기대학교 웹프로그래밍 강의에서 프로젝트로 진행했던 사이트입니다.<br>
 정적 페이지 입니다.<br>
 https://github.com/minsu-zip/4man 을 참고하여 개발했습니다.
